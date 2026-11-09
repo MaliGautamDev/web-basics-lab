@@ -1,0 +1,175 @@
+<mxfile host="app.diagrams.net" modified="2026-11-09T18:25:00.000Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)" version="22.1.18" type="device">
+  <diagram id="page-browser-flow" name="Browser Flow">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="700" background="#f8fafc" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title Banner -->
+        <mxCell id="title1" value="&lt;b&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;Browser Rendering Flow: From URL to Painted Page&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;How browser turns typed address into a painted page: receiving HTML &amp;amp; CSS, and building DOM&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;strokeWidth=1;align=center;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="30" width="980" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Box 1: Address Input & DNS -->
+        <mxCell id="box1" value="&lt;b style=&quot;font-size: 14px; color: #0369a1;&quot;&gt;1. Address Input &amp;amp; DNS Query&lt;/b&gt;&lt;hr style=&quot;border-color: #bae6fd;&quot;&gt;&lt;div style=&quot;text-align: left; font-size: 11px;&quot;&gt;• User types &lt;b&gt;example.com&lt;/b&gt; into URL bar&lt;br&gt;• Browser checks DNS cache &amp;amp; hosts file&lt;br&gt;• Resolves domain to server IP address&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0f2fe;strokeColor=#0288d1;strokeWidth=2;align=center;verticalAlign=top;spacingTop=10;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="160" width="220" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Box 2: Web Server -->
+        <mxCell id="box2" value="&lt;b style=&quot;font-size: 14px; color: #b45309;&quot;&gt;2. Web Server Processing&lt;/b&gt;&lt;hr style=&quot;border-color: #fde68a;&quot;&gt;&lt;div style=&quot;text-align: left; font-size: 11px;&quot;&gt;• Server accepts TCP/TLS connection&lt;br&gt;• Reads HTTP request headers&lt;br&gt;• Returns 200 OK with payload&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#f59e0b;strokeWidth=2;align=center;verticalAlign=top;spacingTop=10;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="160" width="220" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Box 3: HTML Parser & DOM Construction -->
+        <mxCell id="box3" value="&lt;b style=&quot;font-size: 14px; color: #15803d;&quot;&gt;3. HTML Parser &amp;amp; DOM Construction&lt;/b&gt;&lt;hr style=&quot;border-color: #bbf7d0;&quot;&gt;&lt;div style=&quot;text-align: left; font-size: 11px;&quot;&gt;• Tokenizes raw HTML stream into tags&lt;br&gt;• Builds hierarchical &lt;b&gt;DOM Tree&lt;/b&gt;&lt;br&gt;• Identifies embedded &amp;amp; linked CSS&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#22c55e;strokeWidth=2;align=center;verticalAlign=top;spacingTop=10;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="160" width="220" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Box 4: CSS Parser & CSSOM Construction -->
+        <mxCell id="box4" value="&lt;b style=&quot;font-size: 14px; color: #6d28d9;&quot;&gt;4. CSS Parser &amp;amp; CSSOM Construction&lt;/b&gt;&lt;hr style=&quot;border-color: #ddd6fe;&quot;&gt;&lt;div style=&quot;text-align: left; font-size: 11px;&quot;&gt;• Parses received stylesheet rules&lt;br&gt;• Computes cascade &amp;amp; inheritance&lt;br&gt;• Builds hierarchical &lt;b&gt;CSSOM Tree&lt;/b&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ede9fe;strokeColor=#8b5cf6;strokeWidth=2;align=center;verticalAlign=top;spacingTop=10;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="420" width="220" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Box 5: Render Tree & Layout -->
+        <mxCell id="box5" value="&lt;b style=&quot;font-size: 14px; color: #be185d;&quot;&gt;5. Render Tree &amp;amp; Layout (Reflow)&lt;/b&gt;&lt;hr style=&quot;border-color: #fbcfe8;&quot;&gt;&lt;div style=&quot;text-align: left; font-size: 11px;&quot;&gt;• Merges DOM &amp;amp; CSSOM trees&lt;br&gt;• Filters visible nodes (omits head)&lt;br&gt;• Calculates geometry (width, height, x, y)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce7f3;strokeColor=#ec4899;strokeWidth=2;align=center;verticalAlign=top;spacingTop=10;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="420" width="220" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Box 6: Painting & Display -->
+        <mxCell id="box6" value="&lt;b style=&quot;font-size: 14px; color: #0f766e;&quot;&gt;6. Painting &amp;amp; Compositing&lt;/b&gt;&lt;hr style=&quot;border-color: #99f6e4;&quot;&gt;&lt;div style=&quot;text-align: left; font-size: 11px;&quot;&gt;• Converts layout boxes into pixels&lt;br&gt;• Paints text, background color &amp;amp; borders&lt;br&gt;• GPU composites painted page to display&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#14b8a6;strokeWidth=2;align=center;verticalAlign=top;spacingTop=10;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="420" width="220" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Arrows with Labels -->
+        <!-- Arrow 1: Box 1 -> Box 2 -->
+        <mxCell id="arrow1" value="&lt;b&gt;1. HTTP Request&lt;/b&gt;&lt;br&gt;(GET / HTTP/1.1 to Server IP)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;strokeWidth=2;strokeColor=#0288d1;labelBackgroundColor=#ffffff;fontColor=#0f172a;fontSize=11;" edge="1" parent="1" source="box1" target="box2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow 2: Box 2 -> Box 3 -->
+        <mxCell id="arrow2" value="&lt;b&gt;2. HTML File &amp;amp; Status 200&lt;/b&gt;&lt;br&gt;(HTML Stream / Tokens)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;strokeWidth=2;strokeColor=#f59e0b;labelBackgroundColor=#ffffff;fontColor=#0f172a;fontSize=11;" edge="1" parent="1" source="box2" target="box3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow 3: Box 3 -> Box 4 -->
+        <mxCell id="arrow3" value="&lt;b&gt;3. CSS File &amp;amp; Style Rules&lt;/b&gt;&lt;br&gt;(Extracted CSS Text)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;strokeWidth=2;strokeColor=#22c55e;labelBackgroundColor=#ffffff;fontColor=#0f172a;fontSize=11;" edge="1" parent="1" source="box3" target="box4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow 4: Box 4 -> Box 5 -->
+        <mxCell id="arrow4" value="&lt;b&gt;4. Computed DOM &amp;amp; CSSOM&lt;/b&gt;&lt;br&gt;(Style Attachment Tree)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;strokeWidth=2;strokeColor=#8b5cf6;labelBackgroundColor=#ffffff;fontColor=#0f172a;fontSize=11;" edge="1" parent="1" source="box4" target="box5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow 5: Box 5 -> Box 6 -->
+        <mxCell id="arrow5" value="&lt;b&gt;5. Computed Layout Coordinates&lt;/b&gt;&lt;br&gt;(Render Tree Display List)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;strokeWidth=2;strokeColor=#ec4899;labelBackgroundColor=#ffffff;fontColor=#0f172a;fontSize=11;" edge="1" parent="1" source="box5" target="box6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Footer note -->
+        <mxCell id="footer1" value="&lt;i&gt;Complete Pipeline: Typed URL → HTTP Request → HTML Received → DOM Built → CSS Received → CSSOM Built → Render Tree &amp;amp; Layout → Painted Page&lt;/i&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="100" y="590" width="900" height="30" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page-front-and-back" name="Front and Back">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#f8fafc" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title Banner -->
+        <mxCell id="title2" value="&lt;b&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;Tuition-Class Website Architecture: Front-End vs Back-End&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;10 Core Tuition Website Features Categorized into Front-End (5) and Back-End (5)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;strokeWidth=1;align=center;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="30" width="980" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- FRONT-END CONTAINER BOX -->
+        <mxCell id="fe_container" value="&lt;b style=&quot;font-size: 16px; color: #0369a1;&quot;&gt;Front-end&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px; color: #0284c7;&quot;&gt;(Client-side browser rendering, UI widgets, styling &amp;amp; interactions)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f9ff;strokeColor=#0288d1;strokeWidth=2;align=center;verticalAlign=top;spacingTop=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="130" width="440" height="580" as="geometry" />
+        </mxCell>
+
+        <!-- FE Feature 1: enquiry form -->
+        <mxCell id="fe1" value="&lt;b style=&quot;font-size: 13px; color: #0f172a;&quot;&gt;1. enquiry form&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 11px; color: #475569;&quot;&gt;Interactive student admission inquiry form with client-side field validation, instant error tooltips, and dynamic submit button.&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#38bdf8;strokeWidth=1.5;align=left;spacingLeft=12;spacingRight=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="190" width="400" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- FE Feature 2: course schedule timetable -->
+        <mxCell id="fe2" value="&lt;b style=&quot;font-size: 13px; color: #0f172a;&quot;&gt;2. course schedule timetable&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 11px; color: #475569;&quot;&gt;Interactive visual timetable displaying batch timings, subjects, and teacher badges with clickable weekday filters.&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#38bdf8;strokeWidth=1.5;align=left;spacingLeft=12;spacingRight=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="290" width="400" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- FE Feature 3: fee calculator widget -->
+        <mxCell id="fe3" value="&lt;b style=&quot;font-size: 13px; color: #0f172a;&quot;&gt;3. fee calculator widget&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 11px; color: #475569;&quot;&gt;Client-side calculator estimating course tuition, installment options, and scholarship discounts based on user inputs.&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#38bdf8;strokeWidth=1.5;align=left;spacingLeft=12;spacingRight=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="390" width="400" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- FE Feature 4: faculty profile carousel -->
+        <mxCell id="fe4" value="&lt;b style=&quot;font-size: 13px; color: #0f172a;&quot;&gt;4. faculty profile carousel&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 11px; color: #475569;&quot;&gt;Animated photo slider highlighting teacher bios, academic degrees, subject expertise, and sample lecture previews.&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#38bdf8;strokeWidth=1.5;align=left;spacingLeft=12;spacingRight=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="490" width="400" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- FE Feature 5: student testimonials section -->
+        <mxCell id="fe5" value="&lt;b style=&quot;font-size: 13px; color: #0f172a;&quot;&gt;5. student testimonials section&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 11px; color: #475569;&quot;&gt;Responsive cards showcasing past alumni reviews, exam rank achievements, star ratings, and embedded video clips.&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#38bdf8;strokeWidth=1.5;align=left;spacingLeft=12;spacingRight=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="590" width="400" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- BACK-END CONTAINER BOX -->
+        <mxCell id="be_container" value="&lt;b style=&quot;font-size: 16px; color: #6d28d9;&quot;&gt;Back-end&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px; color: #7c3aed;&quot;&gt;(Server-side logic, database storage, payment APIs &amp;amp; authentication)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#faf5ff;strokeColor=#7b1fa2;strokeWidth=2;align=center;verticalAlign=top;spacingTop=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="130" width="440" height="580" as="geometry" />
+        </mxCell>
+
+        <!-- BE Feature 1: student records -->
+        <mxCell id="be1" value="&lt;b style=&quot;font-size: 13px; color: #0f172a;&quot;&gt;1. student records&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 11px; color: #475569;&quot;&gt;Secure relational database (PostgreSQL/MySQL) storing student profiles, enrollment IDs, batch mappings, and test marks.&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#c084fc;strokeWidth=1.5;align=left;spacingLeft=12;spacingRight=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="190" width="400" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- BE Feature 2: fee payment processing api -->
+        <mxCell id="be2" value="&lt;b style=&quot;font-size: 13px; color: #0f172a;&quot;&gt;2. fee payment processing api&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 11px; color: #475569;&quot;&gt;Server-side integration with payment gateways (UPI/Razorpay/Stripe), webhook validation, and automatic receipt generation.&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#c084fc;strokeWidth=1.5;align=left;spacingLeft=12;spacingRight=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="290" width="400" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- BE Feature 3: user authentication service -->
+        <mxCell id="be3" value="&lt;b style=&quot;font-size: 13px; color: #0f172a;&quot;&gt;3. user authentication service&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 11px; color: #475569;&quot;&gt;Backend identity service providing password hashing (bcrypt), JWT token issue/refresh, and role-based portal access control.&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#c084fc;strokeWidth=1.5;align=left;spacingLeft=12;spacingRight=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="390" width="400" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- BE Feature 4: automated attendance tracker -->
+        <mxCell id="be4" value="&lt;b style=&quot;font-size: 13px; color: #0f172a;&quot;&gt;4. automated attendance tracker&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 11px; color: #475569;&quot;&gt;Backend cron job &amp;amp; API logging daily attendance, computing percentage statistics, and alerting instructors of persistent absentees.&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#c084fc;strokeWidth=1.5;align=left;spacingLeft=12;spacingRight=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="490" width="400" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- BE Feature 5: notification & sms service -->
+        <mxCell id="be5" value="&lt;b style=&quot;font-size: 13px; color: #0f172a;&quot;&gt;5. notification &amp;amp; sms service&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 11px; color: #475569;&quot;&gt;Cloud messaging service (Twilio/Firebase) dispatching automated SMS/email alerts for fee due dates, exam schedules, and results.&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#c084fc;strokeWidth=1.5;align=left;spacingLeft=12;spacingRight=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="590" width="400" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Connecting arrows in the middle -->
+        <mxCell id="conn_arrow1" value="&lt;b&gt;HTTP POST/GET (JSON)&lt;/b&gt;&lt;br&gt;Form data &amp;amp; queries" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#0288d1;labelBackgroundColor=#ffffff;fontColor=#0369a1;fontSize=10;" edge="1" parent="1" source="fe_container" target="be_container">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="550" y="330" />
+              <mxPoint x="550" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="conn_arrow2" value="&lt;b&gt;JSON API Response&lt;/b&gt;&lt;br&gt;Data records &amp;amp; tokens" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#7b1fa2;labelBackgroundColor=#ffffff;fontColor=#6d28d9;fontSize=10;" edge="1" parent="1" source="be_container" target="fe_container">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="550" y="510" />
+              <mxPoint x="550" y="510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Footer note -->
+        <mxCell id="footer2" value="&lt;i&gt;Separation of Concerns: Front-End delivers rich interactive user experiences in browser; Back-End guarantees persistent storage, payment security, and business automation.&lt;/i&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="100" y="730" width="900" height="30" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
